@@ -16,11 +16,11 @@ public class SlidingPuzzleApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        board = new PuzzleBoard(3, "204153876"); // Configuration par défaut
+        board = new PuzzleBoard(3, "204153876"); 
 
         BorderPane root = new BorderPane();
 
-        // Création de l'interface
+        
         createUI(root);
 
         Scene scene = new Scene(root, 400, 500);
@@ -30,7 +30,7 @@ public class SlidingPuzzleApp extends Application {
     }
 
     private void createUI(BorderPane root) {
-        // Affichage des informations
+        
         HBox infoBox = new HBox(10);
         moveLabel = new Label("Moves: " + board.getMoveCount());
         scoreLabel = new Label("Score: " + board.getScore());
@@ -38,7 +38,7 @@ public class SlidingPuzzleApp extends Application {
         infoBox.setAlignment(Pos.CENTER);
         root.setTop(infoBox);
 
-        // Grille de jeu
+        
         gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setHgap(5);
@@ -46,7 +46,7 @@ public class SlidingPuzzleApp extends Application {
         updateGrid();
         root.setCenter(gridPane);
 
-        // Contrôles
+        
         HBox controlBox = new HBox(10);
         Button rearrangeBtn = new Button("Rearrange");
         rearrangeBtn.setOnAction(_ -> {
@@ -72,8 +72,8 @@ public class SlidingPuzzleApp extends Application {
 
         for (int row = 0; row < board.getSize(); row++) {
             for (int col = 0; col < board.getSize(); col++) {
-                final int finalRow = row; // Create final copies
-                final int finalCol = col; // Create final copies
+                final int finalRow = row; 
+                final int finalCol = col; 
 
                 Tile tile = board.getTile(row, col);
                 Button btn = new Button(tile.isEmpty() ? "" : String.valueOf(tile.getValue()));
@@ -81,7 +81,7 @@ public class SlidingPuzzleApp extends Application {
 
                 if (!tile.isEmpty()) {
                     btn.setOnAction(_ -> {
-                        if (board.moveTile(finalRow, finalCol)) { // Use the final copies
+                        if (board.moveTile(finalRow, finalCol)) { 
                             updateGrid();
                             updateInfo();
 
@@ -105,7 +105,7 @@ public class SlidingPuzzleApp extends Application {
     }
 
     private void showWinMessage() {
-        // Afficher un message de victoire
+        
         System.out.println("Félicitations! Vous avez résolu le puzzle!");
     }
 

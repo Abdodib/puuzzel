@@ -38,14 +38,14 @@ public class PuzzleBoard {
 
     public boolean moveTile(int row, int col) {
         if (isValidMove(row, col)) {
-            // Échanger la case avec la case vide
+            
             board[emptyRow][emptyCol] = board[row][col];
             board[row][col] = new Tile(0, 0);
             emptyRow = row;
             emptyCol = col;
 
             moveCount++;
-            score += 5; // Par exemple, 5 points par mouvement
+            score += 5; 
 
             return true;
         }
@@ -69,7 +69,7 @@ public class PuzzleBoard {
         return true;
     }
 
-    // Getters
+    
     public int getMoveCount() {
         return moveCount;
     }
@@ -87,7 +87,7 @@ public class PuzzleBoard {
     }
 
     public void shuffle() {
-        // Implémentation du mélange
+    
         List<Integer> values = new ArrayList<>();
         for (int i = 0; i < size * size; i++) {
             values.add(i);
